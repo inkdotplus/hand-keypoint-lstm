@@ -18,46 +18,6 @@
 - **分层后**：LSTM 在高运动帧上反超朴素基线约 7%（39.02 vs 41.96 像素）
 - **逐关节**：手腕等锚点关节误差仅 2.4 像素，指尖等末端关节误差约 30 像素
 
-## 项目结构
-
-```
-.
-├── README.md                          # 本文件
-├── requirements.txt                   # Python 依赖
-├── LICENSE                            # MIT 许可证
-├── .gitignore                         # Git 忽略规则
-│
-├── data/                              # 自建数据
-│   ├── videos/                        # 5 段原始 mp4 视频（git lfs 管理）
-│   │   ├── seg1_open_close.mp4
-│   │   ├── seg2_wave.mp4
-│   │   ├── seg3_finger_bend.mp4
-│   │   ├── seg4_point.mp4
-│   │   └── seg5_switch.mp4
-│   └── keypoints/                     # 提取后的关键点 csv
-│       └── all_keypoints.csv
-│
-├── src/                               # 源代码
-│   ├── extract_keypoints.py           # 用 YOLO11n-pose 提取关键点
-│   ├── dataset.py                     # PyTorch Dataset 类
-│   ├── model.py                       # LSTM 模型定义
-│   ├── train.py                       # 训练脚本
-│   ├── evaluate.py                    # 评估脚本（MPJPE / PCK）
-│   ├── stratified_analysis.py         # 分层误差分析
-│   └── visualize.py                   # 结果可视化
-│
-├── configs/                           # 配置文件
-│   ├── within_segment.yaml            # 段内划分配置
-│   └── cross_segment.yaml             # 跨段划分配置
-│
-├── results/                           # 实验结果
-│   ├── logs/                          # 训练日志 csv
-│   ├── predictions/                   # 测试集预测结果
-│   └── figures/                       # 可视化图片
-│
-└── paper/                             # 论文文档
-    └── course_paper.pdf
-```
 
 ## 环境配置
 
